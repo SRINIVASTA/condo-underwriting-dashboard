@@ -9,6 +9,31 @@ st.set_page_config(page_title="US Mortgage Underwriting Hub", layout="wide")
 st.title("📋 US Mortgage Underwriting & Condo Project Review Hub")
 st.write("An automated evaluation system using custom credit tiers, debt risk brackets, and property criteria.")
 
+# --- NEW: PARAMETERS DOCUMENTATION EXPANDER ---
+with st.expander("📋 View Underwriting Evaluation Rules & Parameters"):
+    st.markdown("""
+    ### 🎯 Core Underwriting & Risk Evaluation Brackets
+
+    #### 1. Credit Score Tiers
+    * **Excellent (800 - 900):** Instant Approval / Best Deals 🟢
+    * **Very Good (740 - 799):** Low Risk / Fast Approval 🟢
+    * **Good (670 - 739):** Standard Risk / Standard Rates 🟡
+    * **Fair (580 - 669):** High Risk / Strict Review 🟠
+    * **Poor (Below 580):** Severe Risk / Auto-Reject 🔴
+
+    #### 2. Debt-to-Income (DTI) Brackets
+    * **Excellent (Below 30.00%):** Low Debt Risk 🟢
+    * **Good (30.01% - 36.00%):** Manageable Debt 🟡
+    * **High Risk (36.01% - 43.00%):** Borderline Strain 🟠
+    * **Critical Danger (Over 43.00%):** Too Much Debt / Auto-Reject 🔴
+
+    #### 3. Condo Project Review Matrix
+    * **PASSED:** HOA Reserves $\ge$ 10% **AND** No Active Litigation 🟢
+    * **REJECTED:** HOA Reserves < 10% 🔴
+    * **REJECTED:** Dangerous Active Litigation Present 🔴
+    * **REJECTED:** Low Reserves & Active Lawsuit Combined 🔴
+    """)
+
 # --- SIDEBAR CONTROLS ---
 st.sidebar.header("🕹️ Simulation Configurations")
 total_profiles = st.sidebar.slider("Number of Sample Profiles to Generate", 10, 200, 100, step=10)
@@ -151,7 +176,7 @@ st.dataframe(display_approved, use_container_width=True)
 
 # --- STAGE 5: EXPORT FULL PIPELINE AS CSV ---
 st.subheader("📥 Download Complete Master Audit Pipeline")
-st.write("Click below to download the complete data sheet containing all 100 profiles.")
+st.write(f"Click below to download the complete data sheet containing all {total_profiles} profiles.")
 
 csv_data = final_df.to_csv(index=False).encode('utf-8')
 st.download_button(
