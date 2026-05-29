@@ -93,7 +93,7 @@ for i in range(total_profiles):
     condo_has_lawsuit = active_litigation[i]
     
     if reserve_pct_calc >= 10.00 and not condo_has_lawsuit:
-        banks_verdict = "PASSED: Condo Project Approved 🟢"
+        banks_verdict = "PASSED: Condo Project Approved"
         condo_status_ok = True
     elif reserve_pct_calc < 10.00 and not condo_has_lawsuit:
         banks_verdict = "REJECTED: HOA Reserves Under 10% 🔴"
