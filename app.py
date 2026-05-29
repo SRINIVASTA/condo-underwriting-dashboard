@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Set up clean web page configuration
-st.set_page_config(page_title="US Mortgage Underwriting Hub", layout="wide")
+st.set_page_config(page_title="## US Mortgage Underwriting Hub", layout="wide")
 
 st.title("📋 US Mortgage Underwriting & Condo Project Review Hub")
 st.write("An automated evaluation system using custom credit tiers, debt risk brackets, and property criteria.")
