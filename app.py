@@ -6,12 +6,20 @@ import matplotlib.pyplot as plt
 # Set up clean web page configuration
 st.set_page_config(page_title="US Mortgage Underwriting Hub", layout="wide")
 
-# This forces the text to be smaller so it fits on one line
+# Large title forced on one single line
 st.markdown(
-    "<h1 style='font-size: 24px; white-space: nowrap;'>📋 US Mortgage Underwriting & Condo Project Review Hub</h1>", 
+    """
+    <h1 style='
+        font-size: 42px; 
+        white-space: nowrap; 
+        overflow-x: auto; 
+        padding-bottom: 10px;
+    '>
+        📋 US Mortgage Underwriting & Condo Project Review Hub
+    </h1>
+    """, 
     unsafe_allow_html=True
 )
-
 st.write("An automated evaluation system using custom credit tiers, debt risk brackets, and property criteria.")
 
 # st.title("📋 US Mortgage Underwriting & Condo Project Review Hub")
