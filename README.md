@@ -6,6 +6,14 @@ An automated evaluation system using custom credit tiers, debt risk brackets, an
 
 Created by **[srinivasta](https://github.com/srinivasta)**.
 
+## 📝 Description
+This repository contains an end-to-end automated loan evaluation and data generation simulation tool built for mortgage risk analysis. The project creates a programmatic framework to assess applicant reliability based on three key risk vectors: credit bureau tier thresholds, calculated debt-to-income (DTI) parameters, and Homeowners Association (HOA) reserve health indexes. 
+
+By modeling variables like automated auto-reject logic flags, legal risk rates for condo litigation, and baseline property checklists, the platform serves as an interactive decision-support layer for understanding how strict capital underwriting rules impact master pipeline loan closure ratios.
+
+## 🏷️ Topics
+`streamlit` `mortgage-underwriting` `risk-assessment` `data-simulation` `credit-scoring` `debt-to-income` `condo-project-review` `fintech` `data-visualization` `python`
+
 ## ✨ Features
 * **Interactive Parameters:** View core risk evaluation parameters using an expandable dashboard panel.
 * **Live Configuration Sidebar:** Set custom sample sizes and dynamic condo active litigation probability percentages.
@@ -29,7 +37,7 @@ Clone the repository or save the source file, then install the required dependen
 pip install streamlit pandas numpy matplotlib
 ```
 
-### 2. Run the Application Localy
+### 2. Run the Application Locally
 Start the Streamlit dashboard server from your command line terminal:
 ```bash
 streamlit run app.py
@@ -57,4 +65,4 @@ streamlit run app.py
 * **REJECTED:** Low Reserves & Active Lawsuit Combined 🔴
 
 ---
-Developed by [srinivasta](https://github.com)
+Developed by [srinivasta](https://github.com/srinivasta)
