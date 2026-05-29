@@ -150,18 +150,31 @@ st.subheader("📊 Visual Compliance Distribution Overview")
 verdict_counts = final_df["🛑 The Bank's Verdict"].value_counts()
 decision_counts = final_df["Final Decision"].value_counts()
 
+# Create two equal columns
 col1, col2 = st.columns(2)
 
 with col1:
-    fig1, ax1 = plt.subplots(figsize=(6, 4))
-    ax1.pie(verdict_counts, labels=verdict_counts.index, autopct='%1.1f%%', startangle=140, colors=['#4f81bd', '#c0504d', '#9bbb59', '#8064a2'], wedgeprops={'edgecolor': 'white', 'linewidth': 1.2})
-    ax1.set_title("Condo Property Verdict Distribution", fontsize=10, weight='bold')
+    # Bold, clean headline above the first chart
+    st.markdown("##### 🏢 Condo Property Verdict Distribution")
+    
+    fig1, ax1 = plt.subplots(figsize=(6, 5))
+    ax1.pie(verdict_counts, labels=verdict_counts.index, autopct='%1.1f%%', startangle=140, 
+            colors=['#4f81bd', '#c0504d', '#9bbb59', '#8064a2'], wedgeprops={'edgecolor': 'white', 'linewidth': 1.2})
+    
+    # This command makes sure the pie chart stays perfectly round and clean
+    fig1.tight_layout()
     st.pyplot(fig1)
 
 with col2:
-    fig2, ax2 = plt.subplots(figsize=(6, 4))
-    ax2.pie(decision_counts, labels=decision_counts.index, autopct='%1.1f%%', startangle=90, colors=['#36648b', '#95a5a6'], wedgeprops={'edgecolor': 'white', 'linewidth': 1.2})
-    ax2.set_title("Final Underwriting Loan Decisions", fontsize=10, weight='bold')
+    # Bold, clean headline above the second chart
+    st.markdown("##### 💳 Final Underwriting Loan Decisions")
+    
+    fig2, ax2 = plt.subplots(figsize=(6, 5))
+    ax2.pie(decision_counts, labels=decision_counts.index, autopct='%1.1f%%', startangle=90, 
+            colors=['#36648b', '#95a5a6'], wedgeprops={'edgecolor': 'white', 'linewidth': 1.2})
+    
+    # This forces both charts to use the exact same layout limits
+    fig2.tight_layout()
     st.pyplot(fig2)
 
 # --- STAGE 4: DETAILED APPROVED CLIENTS REPORT TABLE ---
