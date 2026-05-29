@@ -154,18 +154,38 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("##### 🏢 Condo Property Verdict Distribution")
-    fig1, ax1 = plt.subplots(figsize=(6, 5))
-    ax1.pie(verdict_counts, labels=verdict_counts.index, autopct='%1.1f%%', startangle=140, 
-            colors=['#4f81bd', '#c0504d', '#9bbb59', '#8064a2'], wedgeprops={'edgecolor': 'white', 'linewidth': 1.2})
-    fig1.tight_layout()  # Fixes the sizing mismatch bug
+    fig1, ax1 = plt.subplots(figsize=(5, 5))
+    
+    # We removed labels=verdict_counts.index to keep the chart clean and perfectly sized
+    wedges1, texts1, autotexts1 = ax1.pie(
+        verdict_counts, 
+        autopct='%1.1f%%', 
+        startangle=140, 
+        colors=['#4f81bd', '#c0504d', '#9bbb59', '#8064a2'], 
+        wedgeprops={'edgecolor': 'white', 'linewidth': 1.2}
+    )
+    
+    # Move text labels down to a beautiful legend panel box underneath
+    ax1.legend(wedges1, verdict_counts.index, loc="upper center", bbox_to_anchor=(0.5, -0.05), ncol=1, fontsize=9)
+    fig1.tight_layout()  
     st.pyplot(fig1)
 
 with col2:
     st.markdown("##### 💳 Final Underwriting Loan Decisions")
-    fig2, ax2 = plt.subplots(figsize=(6, 5))
-    ax2.pie(decision_counts, labels=decision_counts.index, autopct='%1.1f%%', startangle=90, 
-            colors=['#36648b', '#95a5a6'], wedgeprops={'edgecolor': 'white', 'linewidth': 1.2})
-    fig2.tight_layout()  # Keeps both pie charts exactly identical in size
+    fig2, ax2 = plt.subplots(figsize=(5, 5))
+    
+    # We removed labels=decision_counts.index here as well
+    wedges2, texts2, autotexts2 = ax2.pie(
+        decision_counts, 
+        autopct='%1.1f%%', 
+        startangle=90, 
+        colors=['#36648b', '#95a5a6'], 
+        wedgeprops={'edgecolor': 'white', 'linewidth': 1.2}
+    )
+    
+    # Place this legend in the same position so sizes match perfectly
+    ax2.legend(wedges2, decision_counts.index, loc="upper center", bbox_to_anchor=(0.5, -0.05), ncol=1, fontsize=9)
+    fig2.tight_layout()  
     st.pyplot(fig2)
 
 # --- STAGE 4: DETAILED APPROVED CLIENTS REPORT TABLE ---
