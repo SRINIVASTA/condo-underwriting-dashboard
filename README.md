@@ -4,7 +4,7 @@ An automated evaluation system using custom credit tiers, debt risk brackets, an
 
 **🚀 Live Deployment:** [Launch Streamlit Web App](https://condo-underwriting-dashboard-dknhngmfzqcjticudtoyuo.streamlit.app/)
 
-Created by **[srinivasta](https://github.com)**.
+Created by **[srinivasta](https://github.com/srinivasta)**.
 
 ## ✨ Features
 * **Interactive Parameters:** View core risk evaluation parameters using an expandable dashboard panel.
