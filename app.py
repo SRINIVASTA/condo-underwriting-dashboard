@@ -9,7 +9,7 @@ st.set_page_config(page_title="US Mortgage Underwriting Hub", layout="wide")
 st.title("📋 US Mortgage Underwriting & Condo Project Review Hub")
 st.write("An automated evaluation system using custom credit tiers, debt risk brackets, and property criteria.")
 
-# --- NEW: PARAMETERS DOCUMENTATION EXPANDER ---
+# --- STAGE 1: PARAMETERS EXPANDER ---
 with st.expander("📋 View Underwriting Evaluation Rules & Parameters"):
     st.markdown("""
     ### 🎯 Core Underwriting & Risk Evaluation Brackets
@@ -34,7 +34,7 @@ with st.expander("📋 View Underwriting Evaluation Rules & Parameters"):
     * **REJECTED:** Low Reserves & Active Lawsuit Combined 🔴
     """)
 
-# --- SIDEBAR CONTROLS ---
+# --- STAGE 2: SIDEBAR CONTROLS & DATA GENERATION ---
 st.sidebar.header("🕹️ Simulation Configurations")
 total_profiles = st.sidebar.slider("Number of Sample Profiles to Generate", 10, 200, 100, step=10)
 lawsuit_rate = st.sidebar.slider("Condo Active Litigation Probability (%)", 0, 50, 12, step=1) / 100.0
@@ -150,31 +150,22 @@ st.subheader("📊 Visual Compliance Distribution Overview")
 verdict_counts = final_df["🛑 The Bank's Verdict"].value_counts()
 decision_counts = final_df["Final Decision"].value_counts()
 
-# Create two equal columns
 col1, col2 = st.columns(2)
 
 with col1:
-    # Bold, clean headline above the first chart
     st.markdown("##### 🏢 Condo Property Verdict Distribution")
-    
     fig1, ax1 = plt.subplots(figsize=(6, 5))
     ax1.pie(verdict_counts, labels=verdict_counts.index, autopct='%1.1f%%', startangle=140, 
             colors=['#4f81bd', '#c0504d', '#9bbb59', '#8064a2'], wedgeprops={'edgecolor': 'white', 'linewidth': 1.2})
-    
-    # This command makes sure the pie chart stays perfectly round and clean
-    fig1.tight_layout()
+    fig1.tight_layout()  # Fixes the sizing mismatch bug
     st.pyplot(fig1)
 
 with col2:
-    # Bold, clean headline above the second chart
     st.markdown("##### 💳 Final Underwriting Loan Decisions")
-    
     fig2, ax2 = plt.subplots(figsize=(6, 5))
     ax2.pie(decision_counts, labels=decision_counts.index, autopct='%1.1f%%', startangle=90, 
             colors=['#36648b', '#95a5a6'], wedgeprops={'edgecolor': 'white', 'linewidth': 1.2})
-    
-    # This forces both charts to use the exact same layout limits
-    fig2.tight_layout()
+    fig2.tight_layout()  # Keeps both pie charts exactly identical in size
     st.pyplot(fig2)
 
 # --- STAGE 4: DETAILED APPROVED CLIENTS REPORT TABLE ---
