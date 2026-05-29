@@ -96,13 +96,13 @@ for i in range(total_profiles):
         banks_verdict = "PASSED: Condo Project Approved"
         condo_status_ok = True
     elif reserve_pct_calc < 10.00 and not condo_has_lawsuit:
-        banks_verdict = "REJECTED: HOA Reserves Under 10% 🔴"
+        banks_verdict = "REJECTED: HOA Reserves Under 10%"
         condo_status_ok = False
     elif reserve_pct_calc >= 10.00 and condo_has_lawsuit:
-        banks_verdict = "REJECTED: Dangerous Active Litigation 🔴"
+        banks_verdict = "REJECTED: Dangerous Active Litigation"
         condo_status_ok = False
     else:
-        banks_verdict = "REJECTED: Low Reserves & Active Lawsuit 🔴"
+        banks_verdict = "REJECTED: Low Reserves & Active Lawsuit"
         condo_status_ok = False
 
     calculated_loan_amount = gross_income[i] * 12 * 4
